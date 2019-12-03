@@ -13,35 +13,46 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
-    def print(self):
+    def printLL(self):
         tmp = self.head
         while tmp:
             print(tmp.data, end="->")
             tmp = tmp.next
         print(None)
 
+    def clone(self):
+        ll = LinkedList()
+        tmp = self.head
+        while tmp.next is not None:
+            ll.push(tmp.data)
+            tmp = tmp.next
+        ll.push(tmp.data)
+        return ll
+
     # checking via reversing
-    def reverse(self):
-        prev = None
-        current = self.head
-        while current:
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-        self.head = prev
+    # def reverse(self):
+    #     prev = None
+    #     current = self.head
+    #     while current:
+    #         next = current.next
+    #         current.next = prev
+    #         prev = current
+    #         current = next
+    #     self.head = prev
 
-
-def isEqual(ll1, ll2):
-    while ll1 and ll2:
-        if ll1.data != ll2.data:
-            return False
-        ll1 = ll1.next
-        ll2 = ll2.next
+    def isEqual(self, ll2):
+        a = self.head
+        b = ll2.head
+        while a and b:
+            if a.data != b.data:
+                return False
+            a = a.next
+            b = b.next
+        return True
 
 
 ll1 = LinkedList()
-ll2 = LinkedList()
+# ll2 = LinkedList()
 ll1.push(1)
 ll1.push(2)
 ll1.push(3)
@@ -49,10 +60,12 @@ ll1.push(2)
 ll1.push(1)
 
 print("Given linked list is:")
-ll1.print()
-ll2 = ll1
+ll1.printLL()
 print("Reversed linked list is:")
-ll2.reverse()
-ll2.print()
+ll2 = ll1.clone()
+ll2.printLL()
+# print("Original linked list is:")
+# ll1.printLL()
+print("Is the given linkedlist a palindrome: ", end='')
+print(ll1.isEqual(ll2))
 
-print(isEqual(ll1, ll2))

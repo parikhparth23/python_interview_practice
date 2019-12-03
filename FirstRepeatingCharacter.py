@@ -13,6 +13,10 @@ def firstRepeating(data):
         if dict[i] == 2:
             return i
 
+    # for i in order:
+    #     if dict[i] > 1:
+    #         print(i,end="")
+
     return None
 
 

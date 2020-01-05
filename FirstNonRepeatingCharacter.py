@@ -16,5 +16,6 @@ def firstNonRepeating(data):
     return None
 
 
-data = "geeks for geeks"
+# data = "geeks for geeks"
+data = "leetcode"
 print(firstNonRepeating(data))

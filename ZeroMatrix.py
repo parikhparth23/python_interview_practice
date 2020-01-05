@@ -13,8 +13,8 @@ def zero_out_row_col(mat1):
                 ipositions[i] = 9
                 jpositions[j] = 6
 
-    print(ipositions)
-    print(jpositions)
+    # print(ipositions)
+    # print(jpositions)
     for i in ipositions.keys():
         for j in range(0, columns):
             mat1[i][j] = 0
